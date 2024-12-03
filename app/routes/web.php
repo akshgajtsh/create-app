@@ -1,5 +1,13 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\ToppageController;
+use App\Http\Controllers\Auth\AdminRegisterController;
+use App\Http\Controllers\Auth\AdminLoginController;
+use App\Http\Controllers\AdminTopController;
+use App\Models\Admin;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,10 +19,26 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/home', 'HomeController@index')->name('home');*/
+
+Auth::routes();
+Route::prefix('admin')->group(function () {
+    //管理者新規登録画面
+    Route::get('/adminregister', [AdminRegisterController::class, 'showAdminregister'])->name('admin.register');
+    Route::post('/adminregister', [AdminRegisterController::class, 'Adminregister']);
+    //管理者ログイン画面
+    Route::get('/login', [AdminLoginController::class, 'showAdminlogin'])->name('admin.login');
+    Route::post('/login', [AdminLoginController::class, 'Adminlogin']);
+    //管理者ログイン画面
+    Route::get('/logout', [AdminLoginController::class, 'logout'])->name('admin.logout');
+    //管理者トップページ
+    Route::get('/', [AdminTopController::class, 'index'])->name('admin.admintop');
+});
+//トップページ画面
+Route::get('/', [ToppageController::class, 'index']);
