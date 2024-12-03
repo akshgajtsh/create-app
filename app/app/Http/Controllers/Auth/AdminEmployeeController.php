@@ -1,21 +1,19 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Admin;
-use Dotenv\Validator;
 use Illuminate\Support\Facades\Hash;
+use App\User;
 
-class AdminRegisterController extends Controller
+class AdminEmployeeController extends Controller
 {
-    public function ShowAdminregister()
+    public function showCreateemployee()
     {
-        return view('admin.admin-register');
+        return view('admin.employee-create');
     }
 
-    public function Adminregister(Request $request)
+    public function Createemployee(Request $request)
     {
         $request->validate([
             'name' => 'required|string|max:255',
@@ -23,7 +21,7 @@ class AdminRegisterController extends Controller
             'password' => 'required|string|min:8|confirmed',
         ]);
 
-        Admin::create([
+        User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),

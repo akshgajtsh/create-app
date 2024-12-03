@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Admin;
+use App\Admin;
 use Illuminate\Support\Facades\Auth;
 
 class AdminLoginController extends Controller
@@ -19,7 +19,7 @@ class AdminLoginController extends Controller
         $credentials = $request->only(['email', 'password']);
 
         if (Auth::guard('admin')->attempt($credentials)) {
-            return redirect()->route('admin')->with([
+            return redirect()->route('admin.admintop')->with([
                 'login_msg' => 'ログインしました。',
             ]);
         }
