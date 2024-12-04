@@ -14,7 +14,7 @@ class CreateMassegesTable extends Migration
     public function up()
     {
         Schema::create('masseges', function (Blueprint $table) {
-            $table->integer('id');
+            $table->bigIncrements('id');
             $table->integer('user_id');
             $table->string('body');
             $table->timestamps();

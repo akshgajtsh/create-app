@@ -35,13 +35,13 @@ Route::prefix('admin')->group(function () {
     //管理者ログイン画面
     Route::get('/login', [AdminLoginController::class, 'showAdminlogin'])->name('admin.login');
     Route::post('/login', [AdminLoginController::class, 'Adminlogin']);
-    //管理者ログイン画面
-    Route::get('/logout', [AdminLoginController::class, 'logout'])->name('admin.logout');
+    //ログアウト
+    Route::post('/logout', [AdminLoginController::class, 'logout'])->name('admin.logout');
     //管理者トップページ
     Route::get('/admintop', [AdminTopController::class, 'index'])->name('admin.admintop');
     //管理画面より従業員アカウント作成
-    Route::get('/employee/create', [AdminEmployeeController::class, 'showCreateemployee'])->name('admin.employee');
-    Route::post('/employee', [AdminEmployeeController::class, 'Createemployee']);
+    /*Route::get('/employee/create', [AdminEmployeeController::class, 'showCreateemployee'])->name('admin.employee');
+    Route::post('/employee/create', [AdminEmployeeController::class, 'Createemployee']);*/
 });
 //トップページ画面
 Route::get('/', [ToppageController::class, 'index']);

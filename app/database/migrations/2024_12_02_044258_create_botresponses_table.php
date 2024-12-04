@@ -14,7 +14,7 @@ class CreateBotresponsesTable extends Migration
     public function up()
     {
         Schema::create('botresponses', function (Blueprint $table) {
-            $table->integer('id');
+            $table->bigIncrements('id');
             $table->integer('message_id');
             $table->string('keyword');
             $table->string('reply');

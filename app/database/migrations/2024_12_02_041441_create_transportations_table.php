@@ -14,7 +14,7 @@ class CreateTransportationsTable extends Migration
     public function up()
     {
         Schema::create('transportations', function (Blueprint $table) {
-            $table->integer('id');
+            $table->bigIncrements('id');
             $table->integer('user_id');
             $table->date('transportation_month');
             $table->string('work_days');

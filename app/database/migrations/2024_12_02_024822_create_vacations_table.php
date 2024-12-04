@@ -14,7 +14,7 @@ class CreateVacationsTable extends Migration
     public function up()
     {
         Schema::create('vacations', function (Blueprint $table) {
-            $table->integer('id');
+            $table->bigIncrements('id');
             $table->integer('user_id');
             $table->date('vacation_month');
             $table->date('vacation_start');

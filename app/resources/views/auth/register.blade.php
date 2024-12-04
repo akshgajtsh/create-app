@@ -61,7 +61,21 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="join_date">入社日</label>
+                            <input type="date" id="join_date" name="join_date" required>
+                        </div>
+
                         <div class="form-group row mb-0">
+                            <div class="form-group row">
+                                <label for="base">所属拠点</label>
+                                <select id="base" name="base" required>
+                                    <option value="">選択してください</option>
+                                    <option value="東京">東京</option>
+                                    <option value="大阪">大阪</option>
+                                    <option value="福岡">福岡</option>
+                                </select>
+                            </div>
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}

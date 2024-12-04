@@ -14,7 +14,7 @@ class CreateVacationCancelsTable extends Migration
     public function up()
     {
         Schema::create('vacation_cancels', function (Blueprint $table) {
-            $table->integer('id');
+            $table->bigIncrements('id');
             $table->integer('user_id');
             $table->integer('vacation_id');
             $table->string('cancel_reason');
