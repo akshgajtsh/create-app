@@ -29,7 +29,7 @@ Route::get('/home', 'HomeController@index')->name('home');*/
 
 Auth::routes();
 
-
+Route::get('/', [ToppageController::class, 'index'])->middleware('auth');
 Route::prefix('admin')->group(function () {
     //管理者新規登録画面
     Route::get('/adminregister', [AdminRegisterController::class, 'showAdminregister'])->name('admin.register');
