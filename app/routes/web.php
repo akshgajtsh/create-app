@@ -28,6 +28,9 @@ use App\Admin;
 Route::get('/home', 'HomeController@index')->name('home');*/
 
 Auth::routes();
+
+Route::get('/', [ToppageController::class, 'index'])->name('home');
+
 Route::prefix('admin')->group(function () {
     //管理者新規登録画面
     Route::get('/adminregister', [AdminRegisterController::class, 'showAdminregister'])->name('admin.register');
@@ -44,4 +47,3 @@ Route::prefix('admin')->group(function () {
     Route::post('/employee/create', [AdminEmployeeController::class, 'Createemployee']);*/
 });
 //トップページ画面
-Route::get('/', [ToppageController::class, 'index']);
