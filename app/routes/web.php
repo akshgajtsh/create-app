@@ -29,7 +29,6 @@ Route::get('/home', 'HomeController@index')->name('home');*/
 
 Auth::routes();
 
-Route::get('/', [ToppageController::class, 'index'])->name('home');
 
 Route::prefix('admin')->group(function () {
     //管理者新規登録画面
@@ -46,4 +45,5 @@ Route::prefix('admin')->group(function () {
     /*Route::get('/employee/create', [AdminEmployeeController::class, 'showCreateemployee'])->name('admin.employee');
     Route::post('/employee/create', [AdminEmployeeController::class, 'Createemployee']);*/
 });
+Route::get('/', [ToppageController::class, 'index'])->name('home');
 //トップページ画面

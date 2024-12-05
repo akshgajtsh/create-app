@@ -2,6 +2,8 @@
 
 namespace App\Console\Commands;
 
+use App\User;
+use Carbon\Carbon;
 use Illuminate\Console\Command;
 
 class UpdateNextVacationDate extends Command
@@ -11,14 +13,14 @@ class UpdateNextVacationDate extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'update:nextvacation';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = '次回湯汲取得可能日を計算して更新する';
 
     /**
      * Create a new command instance.
@@ -37,6 +39,17 @@ class UpdateNextVacationDate extends Command
      */
     public function handle()
     {
-        //
+        $users = User::all();
+
+        foreach ($users as $user) {
+            $joindate = Carbon::parse($user->join_date);
+            $nextvacation = $joindate->addMonth(6);
+            while ($nextvacation->isPast()) {
+                $nextvacation->addYear();
+            }
+            $user->next_vacation_date = $nextvacation->toDateString();
+            $user->save();
+        }
+        $this->info('次回湯汲取得可能日を更新しました');
     }
 }
