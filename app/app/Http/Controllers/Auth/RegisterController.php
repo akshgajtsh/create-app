@@ -72,4 +72,9 @@ class RegisterController extends Controller
             'join_date' => $data['join_date'],
         ]);
     }
+
+    public function redirectPath()
+    {
+        return 'admin/admintop';
+    }
 }
