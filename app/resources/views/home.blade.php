@@ -20,12 +20,12 @@
     </div>
 </div>-->
 
-<table class="table text-center">
+<table class="table text-center text-secondary">
     <thead>
         <tr>
-            <th scope="col">名前</th>
+            <th scope=" col">名前</th>
             <th scope="col">入社日</th>
-            <th scope="col">次回取得可能日</th>
+            <th scope="col">次回有給取得可能日</th>
         </tr>
     </thead>
     <tbody>
@@ -38,24 +38,57 @@
 </table>
 
 <div class="container">
-    <div class="row">
+    <div class="row mt-5">
         <div class="col-sm">
-            One of three columns
+            <div class="card">
+                <img src="{{ asset('images/477 (1).png') }}" class="card-img-top" alt="交通費申請">
+                <div class="card-body">
+                    <h5 class="card-title">交通費申請</h5>
+                    <p class="card-text">交通費申請はこちらからお願いいたします。</p>
+                    <a href="#" class="btn btn-primary">申請フォーム</a>
+                </div>
+            </div>
         </div>
         <div class="col-sm">
-            One of three columns
+            <div class="card">
+                <img src="{{ asset('images/940.png') }}" class="card-img-top" alt="有給申請">
+                <div class="card-body">
+                    <h5 class="card-title">有給申請</h5>
+                    <p class="card-text">有給申請はこちらからお願いいたします。</p>
+                    <a href="#" class="btn btn-primary">申請フォーム</a>
+                </div>
+            </div>
         </div>
         <div class="col-sm">
-            One of three columns
+            <div class="card">
+                <img src="{{ asset('images/218.png') }}" class="card-img-top" alt="有給取消">
+                <div class="card-body">
+                    <h5 class="card-title">有給取消費申請</h5>
+                    <p class="card-text">有給取消申請はこちらからお願いいたします。</p>
+                    <a href="#" class="btn btn-primary">申請フォーム</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<div class="row mt-5 mb-5">
+        <div class="card w-50 text-center">
+            <div class="col-12 d-flex justify-content">
+                <div class="card-body">
+                    <p class="card-text">各種申請の他に勤怠関係の報告<br>年末調整のご質問はこちら！</p>
+                    <a href="#" class="btn btn-primary">CHAT BOT</a>
+                </div>
+            </div>
+        </div>
+    </div>-->
+    <div class="row mt-5">
+        <div class="col-12 d-flex justify-content-center">
+            <div class="card w-50 text-center">
+                <div class="card-body">
+                    <p class="card-text">各種申請の他に勤怠関係の報告<br>年末調整のご質問はこちら！</p>
+                    <a href="#" class="btn btn-primary">CHAT BOT</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<!--<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>-->
-
-
 @endsection

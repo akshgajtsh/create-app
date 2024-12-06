@@ -57,19 +57,19 @@
                             @csrf
                             <div>
                                 <label>名前:</label>
-                                <input type="text" name="name" value="{{ old('name') }}" required class="form-control">
+                                <input type="text" name="name" value="{{ old('name') }}" class="form-control">
                             </div>
                             <div>
                                 <label>Email:</label>
-                                <input type="email" name="email" value="{{ old('email') }}" required class="form-control">
+                                <input type="email" name="email" value="{{ old('email') }}" class="form-control">
                             </div>
                             <div>
                                 <label>パスワード:</label>
-                                <input type="password" name="password" required class="form-control">
+                                <input type="password" name="password" class="form-control">
                             </div>
                             <div>
                                 <label>パスワード（確認用）:</label>
-                                <input type="password" name="password_confirmation" required class="form-control">
+                                <input type="password" name="password_confirmation" class="form-control">
                             </div>
                             <button type="submit" class="btn btn-primary">登録</button>
                         </form>
