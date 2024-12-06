@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 <div class="container">
@@ -68,7 +68,7 @@
 
                         <div class="form-group row mb-0">
                             <label for="base">拠点</label>
-                            <select class="col-md-4 col-form-label text-md-right form-select-sm form-control" aria-label=".form-select-sm example">
+                            <select name="base" class="col-md-4 col-form-label text-md-right form-select-sm form-control" aria-label=".form-select-sm example">
                                 <option selected>選択してください</option>
                                 <option value="東京">東京</option>
                                 <option value="大阪">大阪</option>

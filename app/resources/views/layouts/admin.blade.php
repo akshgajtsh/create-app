@@ -23,9 +23,9 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-dark shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-success shadow-sm">
             <div class="container">
-                <a class="navbar-brand  text-white">
+                <a class="navbar-brand  text-white" href="{{ route('admin.admintop') }}">
                     <!--{{ config('app.name', 'Laravel') }}-->
                     PORTAL SITE
                 </a>
