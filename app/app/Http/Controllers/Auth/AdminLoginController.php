@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Requests\CreateData;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Admin;
@@ -14,7 +15,7 @@ class AdminLoginController extends Controller
         return view('admin.login');
     }
 
-    public function Adminlogin(Request $request)
+    public function Adminlogin(CreateData $request)
     {
         $credentials = $request->only(['email', 'password']);
 
