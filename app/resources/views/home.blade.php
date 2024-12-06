@@ -32,7 +32,7 @@
         <tr>
             <th scope="row">{{ $user->name }}</th>
             <td>{{ $user->join_date }}</td>
-            <td>{{ $user->next_vacation_date }}</td>
+            <td>{{ $nextvacationdate }}</td>
         </tr>
     </tbody>
 </table>

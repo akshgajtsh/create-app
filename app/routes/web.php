@@ -28,8 +28,13 @@ use App\Admin;
 Route::get('/home', 'HomeController@index')->name('home');*/
 
 Auth::routes();
+Route::group(['middleware' => 'auth'], function () {
+    //トップページ画面
+    Route::get('/', [ToppageController::class, 'index'])->name('home');
+});
 
-Route::get('/', [ToppageController::class, 'index'])->middleware('auth');
+
+//管理者関連
 Route::prefix('admin')->group(function () {
     //管理者新規登録画面
     Route::get('/adminregister', [AdminRegisterController::class, 'showAdminregister'])->name('admin.register');
@@ -41,9 +46,4 @@ Route::prefix('admin')->group(function () {
     Route::post('/logout', [AdminLoginController::class, 'logout'])->name('admin.logout');
     //管理者トップページ
     Route::get('/admintop', [AdminTopController::class, 'index'])->name('admin.admintop');
-    //管理画面より従業員アカウント作成
-    /*Route::get('/employee/create', [AdminEmployeeController::class, 'showCreateemployee'])->name('admin.employee');
-    Route::post('/employee/create', [AdminEmployeeController::class, 'Createemployee']);*/
 });
-Route::get('/', [ToppageController::class, 'index'])->name('home');
-//トップページ画面

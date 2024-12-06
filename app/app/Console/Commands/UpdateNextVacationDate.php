@@ -47,9 +47,8 @@ class UpdateNextVacationDate extends Command
             while ($nextvacation->isPast()) {
                 $nextvacation->addYear();
             }
-            $user->next_vacation_date = $nextvacation->toDateString();
-            $user->save();
+            $this->info("ユーザー:{$user->name}");
+            $this->info("次回有給取得可能日を更新しました:{$nextvacation->toDateString()}");
         }
-        $this->info('次回湯汲取得可能日を更新しました');
     }
 }
