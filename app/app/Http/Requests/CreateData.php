@@ -25,8 +25,8 @@ class CreateData extends FormRequest
     {
         return [
             /*'name' => 'required|string',
-            'email' => 'required|string',
-            'password' => 'required|min8'*/
+            'email' => 'required|email',
+            'password' => 'required|min:8|confirmed'*/
         ];
     }
 }

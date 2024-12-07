@@ -91,6 +91,11 @@
                                     アカウント作成
                                 </button>
                             </div>
+                            <div class="col-md-6 offset-md-4 mt-3">
+                                <a class="btn btn-primary" href="{{ route('admin.admintop')}}">
+                                    戻る
+                                </a>
+                            </div>
                         </div>
                     </form>
                 </div>
