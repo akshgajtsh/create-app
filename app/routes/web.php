@@ -33,17 +33,19 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/', [ToppageController::class, 'index'])->name('home');
 });
 
+//Route::middleware(['AdminMiddleware'])->group(function(){
+    //管理者関連
+    Route::prefix('admin')->group(function () {
+        //管理者新規登録画面
+        Route::get('/adminregister', [AdminRegisterController::class, 'showAdminregister'])->name('admin.register');
+        Route::post('/adminregister', [AdminRegisterController::class, 'Adminregister']);
+        //管理者ログイン画面
+        Route::get('/login', [AdminLoginController::class, 'showAdminlogin'])->name('admin.login');
+        Route::post('/login', [AdminLoginController::class, 'Adminlogin']);
+        //ログアウト
+        Route::post('/logout', [AdminLoginController::class, 'logout'])->name('admin.logout');
+        //管理者トップページ
+        Route::get('/admintop', [AdminTopController::class, 'index'])->name('admin.admintop');
+    });
+//});
 
-//管理者関連
-Route::prefix('admin')->group(function () {
-    //管理者新規登録画面
-    Route::get('/adminregister', [AdminRegisterController::class, 'showAdminregister'])->name('admin.register');
-    Route::post('/adminregister', [AdminRegisterController::class, 'Adminregister']);
-    //管理者ログイン画面
-    Route::get('/login', [AdminLoginController::class, 'showAdminlogin'])->name('admin.login');
-    Route::post('/login', [AdminLoginController::class, 'Adminlogin']);
-    //ログアウト
-    Route::post('/logout', [AdminLoginController::class, 'logout'])->name('admin.logout');
-    //管理者トップページ
-    Route::get('/admintop', [AdminTopController::class, 'index'])->name('admin.admintop');
-});
