@@ -8,5 +8,6 @@ class AdminTopController extends Controller
 {
     public function index(){
         return view('admin.admintop');
+        dd(auth('admin')->user());
     }
 }

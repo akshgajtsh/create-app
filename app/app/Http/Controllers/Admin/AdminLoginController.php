@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\CreateData;
 use App\Http\Controllers\Controller;
@@ -24,11 +24,12 @@ class AdminLoginController extends Controller
                 'login_msg' => 'ログインしました。',
             ]);
         }
+        return back()->withErrors(['login' => '認証に失敗しました']);
     }
 
     public function logout(Request $request)
     {
-        Auth::logout();
+        Auth::logout('admin');
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
