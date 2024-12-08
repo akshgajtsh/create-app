@@ -19,13 +19,9 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        $is_admin = auth('admin')->user()->is_admin;
-        if ($is_admin != 1) {
-            //dd('権限なし');
-            auth('admin')->logout();
-            return redirect()->route('admin.login');
+        if (Auth::guard('admin')->check()) {
+            return $next($request);
         }
-        dd(auth('admin')->user());
-        return $next($request);
+        return redirect()->route('admin.login');
     }
 }
