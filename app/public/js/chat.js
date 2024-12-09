@@ -1,4 +1,4 @@
-
+console.log('ok');
 window.Echo.channel('chat-app')
 .listen('MessageSent',function(data){
    console.log('received a message');

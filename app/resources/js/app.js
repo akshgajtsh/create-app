@@ -1,7 +1,9 @@
+console.log('ok');
 require('./bootstrap');
+require('./chat');
+      //console.log('ok');
 
-
-window.Echo.channel('chat-app')
+/*window.Echo.channel('chat-app')
 .listen('MessageSent',function(data){
    console.log('received a message');
    console.log(data);
@@ -45,4 +47,4 @@ window.Echo.channel('chat-app')
      console.log(message.value);
      xhr.send("message="+message.value);
      message.value = '';
- });
+ });*/
