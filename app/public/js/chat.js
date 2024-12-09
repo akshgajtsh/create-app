@@ -1,5 +1,3 @@
-require('./bootstrap');
-
 
 window.Echo.channel('chat-app')
 .listen('MessageSent',function(data){

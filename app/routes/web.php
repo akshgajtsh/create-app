@@ -1,5 +1,6 @@
 <?php
 
+use App\Events\MessageSent;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ToppageController;
@@ -7,7 +8,9 @@ use App\Http\Controllers\Admin\AdminRegisterController;
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\CreateEmployeeController;
 use App\Http\Controllers\AdminTopController;
-use App\Http\Controllers\MessageController;
+use Symfony\Component\EventDispatcher\Event;
+use App\Http\Controllers\BotController;
+//use App\Http\Controllers\MessageController;
 use App\Admin;
 
 /*
@@ -33,9 +36,12 @@ Auth::routes();
 Route::group(['middleware' => 'auth'], function () {
     //トップページ画面
     Route::get('/', [ToppageController::class, 'index'])->name('home');
-    //チャットボット画面
-    Route::get('/chatbots', [MessageController::class, 'index'])->name('chatbots');
-    Route::post('/chatbots', [MessageController::class, 'sendMessage']);
+    //ajax通信のルーティング
+    Route::post('/newmessage', 'BotController@newmessage');
+    Route::get('/allmessage', 'BotController@allmessage');
+
+    //チャットルームを表示
+    Route::get('/chatbots', 'BotController@index')->middleware('auth');
 });
 
 //管理者関連
