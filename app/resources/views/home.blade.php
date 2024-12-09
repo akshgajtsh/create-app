@@ -66,7 +66,7 @@
             <div class="card w-50 text-center">
                 <div class="card-body">
                     <p class="card-text">各種申請の他に勤怠関係の報告<br>年末調整のご質問はこちら！</p>
-                    <a href="#" class="btn btn-primary">CHAT BOT</a>
+                    <a href="{{ route('chatbots')}}" class="btn btn-primary">CHAT BOT</a>
                 </div>
             </div>
         </div>

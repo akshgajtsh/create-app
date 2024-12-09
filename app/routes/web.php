@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\AdminRegisterController;
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\CreateEmployeeController;
 use App\Http\Controllers\AdminTopController;
+use App\Http\Controllers\MessageController;
 use App\Admin;
 
 /*
@@ -32,6 +33,9 @@ Auth::routes();
 Route::group(['middleware' => 'auth'], function () {
     //トップページ画面
     Route::get('/', [ToppageController::class, 'index'])->name('home');
+    //チャットボット画面
+    Route::get('/chatbots', [MessageController::class, 'index'])->name('chatbots');
+    Route::post('/chatbots', [MessageController::class, 'sendMessage']);
 });
 
 //管理者関連
@@ -39,16 +43,17 @@ Route::prefix('admin')->group(function () {
     //管理者ログイン画面
     Route::get('/login', [AdminLoginController::class, 'showAdminlogin'])->name('admin.login');
     Route::post('/login', [AdminLoginController::class, 'Adminlogin']);
-    //管理者従業員アカウント作成
-    Route::get('/register', [CreateEmployeeController::class, 'showEmployeeregister'])->name('admin.employeeregister');
-    Route::post('/register', [CreateEmployeeController::class, 'createEmployee']);
+    //管理者新規登録画面
+    Route::get('/adminregister', [AdminRegisterController::class, 'showAdminregister'])->name('admin.register');
+    Route::post('/adminregister', [AdminRegisterController::class, 'Adminregister']);
 });
+
 Route::middleware(['AdminMiddleware'])->prefix('admin')->group(function () {
     //ログアウト
     Route::post('/logout', [AdminLoginController::class, 'logout'])->name('admin.logout');
     //管理者トップページ
     Route::get('/admintop', [AdminTopController::class, 'index'])->name('admin.admintop');
-    //管理者新規登録画面
-    Route::get('/adminregister', [AdminRegisterController::class, 'showAdminregister'])->name('admin.register');
-    Route::post('/adminregister', [AdminRegisterController::class, 'Adminregister']);
+    //管理者従業員アカウント作成
+    Route::get('/register', [CreateEmployeeController::class, 'showEmployeeregister'])->name('admin.employeeregister');
+    Route::post('/register', [CreateEmployeeController::class, 'createEmployee']);
 });
