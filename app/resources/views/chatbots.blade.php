@@ -1,12 +1,25 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-@section('content')
-<div id="message_area">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <script src="{{ mix('js/chat.js') }}" defer></script>
+    <title>Todos</title>
+</head>
 
-</div>
-<div>
-    <textarea id="message" class="border border-primary" rows="5" cols="100"></textarea>
-    <button id="submit">送信</button>
-</div>
-<script src="{{ asset('app/resources/js/chat.js') }}"></script>
-@endsection
+<body>
+    <div id="message_area">
+
+    </div>
+    <div>
+        <textarea id="message" rows="5" cols="100"></textarea>
+        <button id="submit">送信</button>
+    </div>
+
+    <script src="/js/app.js"></script>
+    <!--<script src="{{asset('js/chat.js')}}"></script>-->
+</body>
+
+</html>

@@ -38,8 +38,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/', [ToppageController::class, 'index'])->name('home');
     Route::get('/chatbots', [BotController::class, 'index'])->name('chatbots');
     //ajax通信のルーティング
-    /*Route::post('/newmessage', 'BotController@newmessage');
-    Route::get('/allmessage', 'BotController@allmessage');*/
+    Route::post('/newmessage', 'BotController@newmessage');
+    Route::get('/allmessage', 'BotController@allmessage');
     //チャットルームを表示
 });
 

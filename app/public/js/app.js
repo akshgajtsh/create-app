@@ -43449,7 +43449,9 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+console.log('ok');
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+__webpack_require__(/*! ./chat */ "./resources/js/chat.js");
 
 /***/ }),
 
@@ -43463,8 +43465,6 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var laravel_echo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! laravel-echo */ "./node_modules/laravel-echo/dist/echo.js");
-/* harmony import */ var pusher_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
-/* harmony import */ var pusher_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(pusher_js__WEBPACK_IMPORTED_MODULE_1__);
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 
 /**
@@ -43495,13 +43495,64 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
  */
 
 
-
-window.Pusher = pusher_js__WEBPACK_IMPORTED_MODULE_1___default.a;
+window.Pusher = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
 window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
   broadcaster: 'pusher',
   key: "4a90ff24d70180742eff",
   cluster: "mt1",
   encrypted: true
+});
+
+/***/ }),
+
+/***/ "./resources/js/chat.js":
+/*!******************************!*\
+  !*** ./resources/js/chat.js ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+console.log('ok');
+window.Echo.channel('chat-app').listen('MessageSent', function (data) {
+  console.log('received a message');
+  console.log(data);
+  var newmessage = data.message[0].message;
+  var name = data.message[1].name;
+  var message = document.querySelector('#message_area');
+  message.insertAdjacentHTML('beforeend', name + " " + newmessage + " " + data.message[0].created_at + "<br>");
+});
+
+//一度だけ実行される処理
+var xhr = new XMLHttpRequest();
+xhr.open('GET', '/allmessage');
+xhr.send();
+
+//最初にアクセスした時全てのメッセージを取得
+xhr.onreadystatechange = function () {
+  if (xhr.readyState === 4 && xhr.status === 200) {
+    var json = xhr.responseText;
+    var obj = JSON.parse(json);
+    console.log(obj);
+    var message = document.querySelector('#message_area');
+    for (var i = 0; i < obj.length; i++) {
+      message.insertAdjacentHTML('beforeend', obj[i].user.name + " " + obj[i].message + " " + obj[i].created_at + "<br>");
+    }
+  }
+};
+var submitbutton = document.querySelector('#submit');
+
+//送信ボタンをクリックした時
+submitbutton.addEventListener('click', function () {
+  var message = document.querySelector('#message');
+  console.log(message.value);
+  var xhr = new XMLHttpRequest();
+  var token = document.getElementsByName('csrf-token').item(0).content;
+  xhr.open('POST', '/newmessage');
+  xhr.setRequestHeader('X-CSRF-Token', token);
+  xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
+  console.log(message.value);
+  xhr.send("message=" + message.value);
+  message.value = '';
 });
 
 /***/ }),
