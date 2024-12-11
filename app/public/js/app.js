@@ -43448,7 +43448,6 @@ module.exports = function(module) {
   \*****************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
-
 console.log('ok');
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 __webpack_require__(/*! ./chat */ "./resources/js/chat.js");

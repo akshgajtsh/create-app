@@ -11,7 +11,9 @@ use App\Http\Controllers\AdminTopController;
 use Symfony\Component\EventDispatcher\Event;
 use App\Http\Controllers\BotController;
 //use App\Http\Controllers\MessageController;
+use Illuminate\Http\Request;
 use App\Admin;
+use App\BotResponse;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,9 +40,17 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/', [ToppageController::class, 'index'])->name('home');
     Route::get('/chatbots', [BotController::class, 'index'])->name('chatbots');
     //ajax通信のルーティング
-    Route::post('/newmessage', 'BotController@newmessage');
-    Route::get('/allmessage', 'BotController@allmessage');
-    //チャットルームを表示
+    //Route::post('/newmessage', [BotController::class, 'newmessage']);
+    //Route::get('/allmessage', [BotController::class, 'allMessages']);
+    Route::post('/get-bot-reply', function (Request $request) {
+        $keyword = $request->input('keyword');
+        // キーワードに対応するボット返信を取得
+        $response = BotResponse::where('keyword', $keyword)->first();
+        return response()->json([
+            'reply' => $response->reply ?? '申し訳ありませんが、対応する返信が見つかりません。',
+            'link' => $response->link ?? ''
+        ]);
+    });
 });
 
 //管理者関連
