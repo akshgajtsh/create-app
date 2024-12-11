@@ -10,8 +10,11 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-light bg-light mb-5">
-        <a class="navbar-brand" href="#">PORTAL SITE</a>
+    <nav class="navbar bg-body-tertiary  bg-dark shadow-sm mb-5">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white">PORTAL SITE</a>
+            <a class="text-white" href="{{ route('home')}}">TOP PAGE</a>
+        </div>
     </nav>
 
     <div class="chat-container row justify-content-center mb-5">
@@ -23,13 +26,16 @@
             </div>
         </div>
     </div>
-    <div id="chat-buttons">
-        <button class="chat-button" data-keyword="勤怠報告">勤怠報告</button>
-        <button class="chat-button" data-keyword="欠勤・遅刻・早退">欠勤・遅刻・早退</button>
-        <button class="chat-button" data-keyword="連絡済">連絡済</button>
-        <button class="chat-button" data-keyword="未連絡">未連絡</button>
-        <button class="chat-button" data-keyword="年末調整">年末調整</button>
-        <a href="{{ route('home')}}">TOPページへ</a>
+    <div class="fixed-bottom mb-5">
+        <div id="chat-buttons">
+            <div class="d-flex justify-content-around">
+                <button class="chat-button" data-keyword="勤怠報告">勤怠報告</button>
+                <button class="chat-button" data-keyword="欠勤・遅刻・早退">欠勤・遅刻・早退</button>
+                <button class="chat-button" data-keyword="連絡済">連絡済</button>
+                <button class="chat-button" data-keyword="未連絡">未連絡</button>
+                <button class="chat-button" data-keyword="年末調整">年末調整</button>
+            </div>
+        </div>
     </div>
     <script src="/js/app.js"></script>
     <script src="{{asset('js/chat.js')}}"></script>

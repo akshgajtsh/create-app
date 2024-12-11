@@ -40,8 +40,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/', [ToppageController::class, 'index'])->name('home');
     Route::get('/chatbots', [BotController::class, 'index'])->name('chatbots');
     //ajax通信のルーティング
-    //Route::post('/newmessage', [BotController::class, 'newmessage']);
-    //Route::get('/allmessage', [BotController::class, 'allMessages']);
+    Route::post('/newmessage', [BotController::class, 'newmessage']);
     Route::post('/get-bot-reply', function (Request $request) {
         $keyword = $request->input('keyword');
         // キーワードに対応するボット返信を取得
