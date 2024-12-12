@@ -26,7 +26,7 @@
                 <div class="card-body">
                     <h5 class="card-title">交通費申請</h5>
                     <p class="card-text">交通費申請はこちらからお願いいたします。</p>
-                    <a href="#" class="btn btn-primary">申請フォーム</a>
+                    <a href="{{ route('transport.create')}}" class="btn btn-primary">申請フォーム</a>
                 </div>
             </div>
         </div>

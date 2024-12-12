@@ -10,7 +10,7 @@ use App\Http\Controllers\Admin\CreateEmployeeController;
 use App\Http\Controllers\AdminTopController;
 use Symfony\Component\EventDispatcher\Event;
 use App\Http\Controllers\BotController;
-//use App\Http\Controllers\MessageController;
+use App\Http\Controllers\TransportationController;
 use Illuminate\Http\Request;
 use App\Admin;
 use App\BotResponse;
@@ -50,6 +50,8 @@ Route::group(['middleware' => 'auth'], function () {
             'link' => $response->link ?? ''
         ]);
     });
+    Route::get('/transport/create', [TransportationController::class, 'index'])->name('transport.create');
+    Route::post('/transport/store', [TransportationController::class, 'transportationform'])->name('submit.transport');
 });
 
 //管理者関連
