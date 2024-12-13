@@ -11,14 +11,15 @@ class TransportationMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $data;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($name)
+    public function __construct($data)
     {
-        $this->name = $name;
+        $this->data = $data;
     }
 
     /**
@@ -30,8 +31,8 @@ class TransportationMail extends Mailable
     {
         //return $this->view('view.name');
         return $this->to('xiaolinkeigi309@gmail.com')
-                    ->subject('登録完了しました。')
-                    ->view('transportation.transportation_Mail')
-                    ->with(['name' => $this->name]);
+            ->subject('交通費申請メール')
+            ->view('Mail.transportation_Mail')
+            ->with(['data' => $this->data]);
     }
 }

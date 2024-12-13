@@ -14,6 +14,8 @@ class Transportation extends Model
         'work_days',
         'transportation_confirm',
         'transportation_cost',
-        'transportation_section',
+        'start_section',
+        'end_section',
+        'via_section',
     ];
 }

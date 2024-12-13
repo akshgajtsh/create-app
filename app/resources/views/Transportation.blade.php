@@ -70,9 +70,9 @@
             <label class="col-md-4 col-form-label text-md-right" for="transportation_confirm">定期券購入確認</label>
             <select name="transportation_confirm" class="form-control">
                 <option selected>選択してください</option>
-                <option value="1ヶ月">1ヶ月購入</option>
-                <option value="3ヶ月">3ヶ月購入</option>
-                <option value="6ヶ月">6ヶ月購入</option>
+                <option value="1">1ヶ月購入</option>
+                <option value="3">3ヶ月購入</option>
+                <option value="6">6ヶ月購入</option>
             </select>
         </div>
         <div>
@@ -81,13 +81,26 @@
         </div>
         <div>
             <label class="col-md-4 col-form-label text-md-right" for="transportation_section">通勤区間</label>
-            <input type="text" name="transportation_section[]" class="text" />
             <div>
+                <input type="text" name="start_section" placeholder="出発駅" />
+            </div>
+            <input type="text" name="via_section[]" class="text" placeholder="経由駅" />
+            <div class="mb-5">
                 <button type="button" id="btn-clone">追加</button>
                 <button type="button" id="btn-remove">削除</button>
             </div>
+            <input type="text" name="end_section" placeholder="目的地" />
         </div>
         <button type="submit">送信</button>
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
     </form>
 </body>
 
