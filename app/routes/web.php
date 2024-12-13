@@ -11,6 +11,7 @@ use App\Http\Controllers\AdminTopController;
 use Symfony\Component\EventDispatcher\Event;
 use App\Http\Controllers\BotController;
 use App\Http\Controllers\TransportationController;
+use App\Http\Controllers\VacationController;
 use Illuminate\Http\Request;
 use App\Admin;
 use App\BotResponse;
@@ -30,8 +31,6 @@ use App\BotResponse;
     return view('welcome');
 });
 
-
-
 Route::get('/home', 'HomeController@index')->name('home');*/
 
 Auth::routes();
@@ -50,8 +49,12 @@ Route::group(['middleware' => 'auth'], function () {
             'link' => $response->link ?? ''
         ]);
     });
+    //交通費申請フォーム
     Route::get('/transport/create', [TransportationController::class, 'index'])->name('transport.create');
     Route::post('/transport/store', [TransportationController::class, 'transportationform'])->name('submit.transport');
+    //有給申請フォーム
+    Route::get('/vacation/create', [VacationController::class, 'index'])->name('vacation.create');
+    Route::post('/vacation/create', [VacationController::class, 'vacationsubmit'])->name('submit.vacation');
 });
 
 //管理者関連

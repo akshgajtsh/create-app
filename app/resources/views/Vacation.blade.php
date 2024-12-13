@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <form action="{{ route('submit.transport') }}" method="POST">
+    <form action="{{ route('submit.vacation') }}" method="POST">
         @csrf
         <div>
             <label class="col-md-4 col-form-label text-md-right" for="vacation_month">有給取得月</label>
@@ -72,6 +72,24 @@
         <div>
             <label class="col-md-4 col-form-label text-md-right" for="vacation_reason">取得理由</label>
             <input type="text" class="col-md-4 col-form-label text-md-right" name="vacation_reason" />
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="clientcheck" id="clientcheck">
+            <label class="form-check-label" for="clientcheck">
+                派遣先へ取得確認済み
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="clientcheck" id="clientcheck" checked>
+            <label class="form-check-label" for="clientcheck">
+                派遣先へ取得未確認
+            </label>
+        </div>
+
+        <div class="mb-3">
+            <label for="comment" class="form-label">備考</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="comment"></textarea>
         </div>
 
         <button type="submit">送信</button>
