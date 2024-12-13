@@ -36,7 +36,7 @@
                 <div class="card-body">
                     <h5 class="card-title">有給申請</h5>
                     <p class="card-text">有給申請はこちらからお願いいたします。</p>
-                    <a href="#" class="btn btn-primary">申請フォーム</a>
+                    <a href="{{ route('vacation.create') }}" class="btn btn-primary">申請フォーム</a>
                 </div>
             </div>
         </div>

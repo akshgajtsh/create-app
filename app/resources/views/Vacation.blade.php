@@ -8,10 +8,14 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="{{ route('home') }}">PORTAL SITE</a>
+    </nav>
+    <h1>有休申請</h1>
     <form action="{{ route('submit.vacation') }}" method="POST">
         @csrf
         <div>
-            <label class="col-md-4 col-form-label text-md-right" for="vacation_month">有給取得月</label>
+            <label class="col-md-4 col-form-label text-md-right" for="vacation_month">有休取得月</label>
             <select name="vacation_month" class="form-control">
                 <option selected>選択してください</option>
                 <option value="1">1月</option>
@@ -30,14 +34,14 @@
         </div>
 
         <div>
-            <label class="col-md-4 col-form-label text-md-right" for="vacation_start">有給取得開始日</label>
+            <label class="col-md-4 col-form-label text-md-right" for="vacation_start">有休取得開始日</label>
             <div class="col-md-6">
                 <input type="date" id="vacation_start" name="vacation_start" class="form-control" required>
             </div>
         </div>
 
         <div>
-            <label class="col-md-4 col-form-label text-md-right" for="vacation_end">有給取得終了日</label>
+            <label class="col-md-4 col-form-label text-md-right" for="vacation_end">有休取得終了日</label>
             <div class="col-md-6">
                 <input type="date" id="vacation_end" name="vacation_end" class="form-control" required>
             </div>
@@ -53,7 +57,7 @@
         </div>
 
         <div>
-            <label class="col-md-4 col-form-label text-md-right" for="vacation_days">有給取得日数</label>
+            <label class="col-md-4 col-form-label text-md-right" for="vacation_days">有休取得日数</label>
             <select name="vacation_days" class="form-control">
                 <option selected>選択してください</option>
                 <option value="0.5">0.5</option>
@@ -89,7 +93,7 @@
 
         <div class="mb-3">
             <label for="comment" class="form-label">備考</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="comment"></textarea>
+            <textarea class="form-control" id="comment" rows="3" name="comment"></textarea>
         </div>
 
         <button type="submit">送信</button>

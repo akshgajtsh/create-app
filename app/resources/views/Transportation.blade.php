@@ -42,6 +42,10 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="{{ route('home') }}">PORTAL SITE</a>
+    </nav>
+    <h1>交通費申請</h1>
     <form action="{{ route('submit.transport') }}" method="POST">
         @csrf
         <div>

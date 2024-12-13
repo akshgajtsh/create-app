@@ -11,7 +11,7 @@ use App\Http\Controllers\AdminTopController;
 use Symfony\Component\EventDispatcher\Event;
 use App\Http\Controllers\BotController;
 use App\Http\Controllers\TransportationController;
-use App\Http\Controllers\VacationController;
+use App\Http\Controllers\vacationController;
 use Illuminate\Http\Request;
 use App\Admin;
 use App\BotResponse;
@@ -53,8 +53,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/transport/create', [TransportationController::class, 'index'])->name('transport.create');
     Route::post('/transport/store', [TransportationController::class, 'transportationform'])->name('submit.transport');
     //有給申請フォーム
-    Route::get('/vacation/create', [VacationController::class, 'index'])->name('vacation.create');
-    Route::post('/vacation/create', [VacationController::class, 'vacationsubmit'])->name('submit.vacation');
+    Route::get('/vacation/create', [vacationController::class, 'index'])->name('vacation.create');
+    Route::post('/vacation/store', [vacationController::class, 'vacationsubmit'])->name('submit.vacation');
 });
 
 //管理者関連
