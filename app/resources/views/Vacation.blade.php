@@ -79,13 +79,13 @@
         </div>
 
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="clientcheck" id="clientcheck">
+            <input class="form-check-input" type="radio" name="clientcheck" id="clientcheck" value="派遣先確認済み" checked>
             <label class="form-check-label" for="clientcheck">
                 派遣先へ取得確認済み
             </label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="clientcheck" id="clientcheck" checked>
+            <input class="form-check-input" type="radio" name="clientcheck" id="clientcheck" value="派遣先確未確認">
             <label class="form-check-label" for="clientcheck">
                 派遣先へ取得未確認
             </label>

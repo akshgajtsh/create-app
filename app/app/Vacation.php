@@ -14,6 +14,7 @@ class Vacation extends Model
         'half_vacation',
         'vacation_days',
         'vacation_reason',
+        'clientcheck',
         'comment',
     ];
 }
