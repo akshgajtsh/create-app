@@ -12,6 +12,7 @@ use Symfony\Component\EventDispatcher\Event;
 use App\Http\Controllers\BotController;
 use App\Http\Controllers\TransportationController;
 use App\Http\Controllers\vacationController;
+use App\Http\Controllers\vacationCancelController;
 use Illuminate\Http\Request;
 use App\Admin;
 use App\BotResponse;
@@ -55,6 +56,9 @@ Route::group(['middleware' => 'auth'], function () {
     //有給申請フォーム
     Route::get('/vacation/create', [vacationController::class, 'index'])->name('vacation.create');
     Route::post('/vacation/store', [vacationController::class, 'vacationsubmit'])->name('submit.vacation');
+    //有給取消申請フォーム
+    Route::get('/vacation_cancel/create', [vacationCancelController::class, 'index'])->name('vacationcancel.create');
+    Route::post('/vacation_cancel/store', [vacationCancelController::class, 'vacationcancelsubmit'])->name('submit.vacationcancel');
 });
 
 //管理者関連

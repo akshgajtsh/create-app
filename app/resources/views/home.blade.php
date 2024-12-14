@@ -34,8 +34,8 @@
             <div class="card">
                 <img src="{{ asset('images/940.png') }}" class="card-img-top" alt="有給申請">
                 <div class="card-body">
-                    <h5 class="card-title">有給申請</h5>
-                    <p class="card-text">有給申請はこちらからお願いいたします。</p>
+                    <h5 class="card-title">有休申請</h5>
+                    <p class="card-text">有休申請はこちらからお願いいたします。</p>
                     <a href="{{ route('vacation.create') }}" class="btn btn-primary">申請フォーム</a>
                 </div>
             </div>
@@ -44,9 +44,9 @@
             <div class="card">
                 <img src="{{ asset('images/218.png') }}" class="card-img-top" alt="有給取消">
                 <div class="card-body">
-                    <h5 class="card-title">有給取消申請</h5>
-                    <p class="card-text">有給取消申請はこちらからお願いいたします。</p>
-                    <a href="#" class="btn btn-primary">申請フォーム</a>
+                    <h5 class="card-title">有休取消申請</h5>
+                    <p class="card-text">有休取消申請はこちらからお願いいたします。</p>
+                    <a href="{{ route('vacationcancel.create') }}" class="btn btn-primary">申請フォーム</a>
                 </div>
             </div>
         </div>
