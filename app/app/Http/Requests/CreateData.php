@@ -24,9 +24,7 @@ class CreateData extends FormRequest
     public function rules()
     {
         return [
-            /*'name' => 'required|string',
-            'email' => 'required|email',
-            'password' => 'required|min:8|confirmed'*/
+            
         ];
     }
 }

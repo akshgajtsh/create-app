@@ -16,6 +16,7 @@ use App\Http\Controllers\vacationCancelController;
 use Illuminate\Http\Request;
 use App\Admin;
 use App\BotResponse;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,4 +80,9 @@ Route::middleware(['AdminMiddleware'])->prefix('admin')->group(function () {
     //管理者従業員アカウント作成
     Route::get('/register', [CreateEmployeeController::class, 'showEmployeeregister'])->name('admin.employeeregister');
     Route::post('/register', [CreateEmployeeController::class, 'createEmployee']);
+    //従業員アカウント一覧
+    Route::get('/users', [UserController::class, 'index'])->name('users.index');
+    Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
+    Route::post('/users/{id}', [UserController::class, 'update'])->name('user.update');
+    Route::delete('/users/{id}',[UserController::class, 'delete'])->name('users.delete');
 });
