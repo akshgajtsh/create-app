@@ -11,6 +11,8 @@ class Vacation_cancel extends Model
         'vacation_id',
         'cancel_reason',
         'comment',
+        'vacation_start',
+        'vacation_end',
     ];
 
     public function vacation()
