@@ -149,6 +149,10 @@ return [
     'attributes' => [
         'email' => 'メールアドレス',
         'password' => 'パスワード',
+        'work_days' => '出勤日数',
+        'start_section' => '出発駅',
+        'end_section' => '目的地',
+        'transportation_cost' => '交通費',
     ],
 
 ];

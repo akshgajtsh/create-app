@@ -19,7 +19,7 @@
     <div class="jumbotron text-center">
         <h1 class="display-4 mt-5 mb-5">管理者トップページ</h1>
         <a href="{{route('admin.employeeregister')}}" class="btn btn-primary">従業員アカウント作成</a>
-        <button type="button" class="btn btn-info">ユーザー確認画面</button>
+        <a href="{{ route('user.index')}}" class="btn btn-info">ユーザー確認画面</a>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>

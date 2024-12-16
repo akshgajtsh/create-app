@@ -9,6 +9,7 @@ use App\Transportation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use App\Http\Requests\CreateData;
 
 class TransportationController extends Controller
 {
@@ -17,18 +18,8 @@ class TransportationController extends Controller
         return view('Transportation');
     }
 
-    public function transportationform(Request $request)
+    public function transportationform(CreateData $request)
     {
-        //dd($request->all()); // リクエストデータを表示
-        /*$request->validate([
-            'transportation_month' => 'required|integer|between:1,12',
-            'work_days' => 'required|integer|min:1',
-            'transportation_confirm' => 'required',
-            'transportation_cost' => 'required|numeric|min:1',
-            'transportation_section' => 'required|array|min:1', // 配列であることを保証
-            'transportation_section' => 'required|string|max:255', // 各要素が文字列
-        ]);*/
-
         $transportation = Transportation::create([
             'user_id' => Auth::id(),
             'transportation_month' => $request['transportation_month'],

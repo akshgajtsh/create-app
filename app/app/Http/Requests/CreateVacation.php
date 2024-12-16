@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateData extends FormRequest
+class CreateVacation extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class CreateData extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -24,12 +24,7 @@ class CreateData extends FormRequest
     public function rules()
     {
         return [
-            'transportation_month' => 'required|integer',
-            'work_days' => 'required|string',
-            'transportation_confirm' => 'required|integer',
-            'start_section' => 'required|string',
-            'end_section' => 'required|string',
-            'transportation_cost' => 'required|string',
+            //
         ];
     }
 }

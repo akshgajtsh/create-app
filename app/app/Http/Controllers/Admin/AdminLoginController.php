@@ -15,7 +15,7 @@ class AdminLoginController extends Controller
         return view('admin.login');
     }
 
-    public function Adminlogin(CreateData $request)
+    public function Adminlogin(Request $request)
     {
         $credentials = $request->only(['email', 'password']);
 
