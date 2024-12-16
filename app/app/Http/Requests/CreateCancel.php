@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateVacation extends FormRequest
+class CreateCancel extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,13 +24,8 @@ class CreateVacation extends FormRequest
     public function rules()
     {
         return [
-            'vacation_month' => 'required|integer',
-            'vacation_start' => 'required|date',
-            'vacation_end' => 'required|date',
-            'half_vacation' => 'required|string',
-            'vacation_days' => 'required|string',
-            'vacation_reason' => 'required|string',
-            'clientcheck' => 'required|string',
+            'cancel_reason' => 'required|string',
+            'vacation_id' => 'required|integer',
         ];
     }
 }

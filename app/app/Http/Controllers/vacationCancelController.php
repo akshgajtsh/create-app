@@ -8,6 +8,7 @@ use App\Vacation_cancel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use App\Http\Requests\CreateCancel;
 
 class vacationCancelController extends Controller
 {
@@ -24,7 +25,7 @@ class vacationCancelController extends Controller
         return view('vacationcancel', compact('vacationcancel'));
     }
 
-    public function vacationcancelsubmit(Request $request)
+    public function vacationcancelsubmit(CreateCancel $request)
     {
 
         $vacations = Vacation::find($request['vacation_id']);

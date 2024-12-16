@@ -153,6 +153,11 @@ return [
         'start_section' => '出発駅',
         'end_section' => '目的地',
         'transportation_cost' => '交通費',
+        'vacation_start' => '有休開始日',
+        'vacation_end' => '有休終了日',
+        'clientcheck' => '派遣先確認',
+        'vacation_reason' => '取得理由',
+        'cancel_reason' => '取り上げ理由',
     ],
 
 ];

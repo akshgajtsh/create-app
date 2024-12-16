@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Mail\VacationMail;
 use Illuminate\Support\Facades\Mail;
+use App\Http\Requests\CreateVacation;
 
 class vacationController extends Controller
 {
@@ -15,7 +16,7 @@ class vacationController extends Controller
         return view('Vacation');
     }
 
-    public function vacationsubmit(Request $request)
+    public function vacationsubmit(CreateVacation $request)
     {
         $vacation = Vacation::create([
             'user_id' => Auth::id(),
