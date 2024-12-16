@@ -43,72 +43,78 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="{{ route('home') }}">PORTAL SITE</a>
+    <nav class="navbar navbar-light bg-dark shadow-sm">
+        <a class="navbar-brand text-white" href="{{ route('home') }}">PORTAL SITE</a>
     </nav>
-    <h1>交通費申請</h1>
-    <form action="{{ route('submit.transport') }}" method="POST">
-        @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
-        @csrf
-        <div class="row justify-content-center">
-            <div>
-                <label class="col-md-4 col-form-label text-md-right" for="transportation_month">交通費使用月</label>
-                <select name="transportation_month" class="form-control w-25 p-3">
-                    <option selected>選択してください</option>
-                    <option value="1">1月</option>
-                    <option value="2">2月</option>
-                    <option value="3">3月</option>
-                    <option value="4">4月</option>
-                    <option value="5">5月</option>
-                    <option value="6">6月</option>
-                    <option value="7">7月</option>
-                    <option value="8">8月</option>
-                    <option value="9">9月</option>
-                    <option value="10">10月</option>
-                    <option value="11">11月</option>
-                    <option value="12">12月</option>
-                </select>
-            </div>
-            <div>
-                <label class="col-md-4 col-form-label text-md-right" for="work_days">出勤日数</label>
-                <input type="text" class="col-md-4 col-form-label form-control text-md-right w-25 p-3" name="work_days" />
-            </div>
-            <div>
-                <label class="col-md-4 col-form-label text-md-right" for="transportation_confirm">定期券購入確認</label>
-                <select name="transportation_confirm" class="form-control w-25 p-3">
-                    <option selected>選択してください</option>
-                    <option value="1">1ヶ月購入</option>
-                    <option value="3">3ヶ月購入</option>
-                    <option value="6">6ヶ月購入</option>
-                </select>
-            </div>
-            <div>
-                <label class="col-md-4 col-form-label text-md-right" for="transportation_cost">交通費</label>
-                <input type="text" class="col-md-4 col-form-label form-control text-md-right w-25 p-3" name="transportation_cost" />
-            </div>
-            <div>
-                <label class="col-md-4 col-form-label text-md-right" for="transportation_section">通勤区間</label>
+    <h1 class="text-center mt-3">交通費申請</h1>
+    <div class="container d-flex justify-content-center">
+        <div class="w-50">
+            <form action="{{ route('submit.transport') }}" method="POST">
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+                @csrf
+
                 <div>
-                    <input type="text" name="start_section" class="form-control mb-5 w-25 p-3" placeholder="出発駅" />
+                    <label class="col-md-4 col-form-label text-md-right" for="transportation_month">交通費使用月</label>
+                    <select name="transportation_month" class="form-control">
+                        <option selected>選択してください</option>
+                        <option value="1">1月</option>
+                        <option value="2">2月</option>
+                        <option value="3">3月</option>
+                        <option value="4">4月</option>
+                        <option value="5">5月</option>
+                        <option value="6">6月</option>
+                        <option value="7">7月</option>
+                        <option value="8">8月</option>
+                        <option value="9">9月</option>
+                        <option value="10">10月</option>
+                        <option value="11">11月</option>
+                        <option value="12">12月</option>
+                    </select>
                 </div>
-                <input type="text" name="via_section[]" class="text form-control w-25 p-3" placeholder="経由駅" />
-                <div class="mb-5">
-                    <button type="button" id="btn-clone" class="mt-2">追加</button>
-                    <button type="button" id="btn-remove" class="mt-2">削除</button>
+                <div>
+                    <label class="col-md-4 col-form-label text-md-right" for="work_days">出勤日数</label>
+                    <input type="text" class="col-md-4 col-form-label form-control text-md-right" name="work_days" />
                 </div>
-                <input type="text" name="end_section" class="form-control w-25 p-3" placeholder="目的地" />
-            </div>
+                <div>
+                    <label class="col-md-4 col-form-label text-md-right" for="transportation_confirm">定期券購入確認</label>
+                    <select name="transportation_confirm" class="form-control">
+                        <option selected>選択してください</option>
+                        <option value="1">1ヶ月購入</option>
+                        <option value="3">3ヶ月購入</option>
+                        <option value="6">6ヶ月購入</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="form-label" for="transportation_cost">交通費</label>
+                    <input type="text" class="col-md-4 col-form-label form-control text-md-right" name="transportation_cost" />
+                </div>
+                <div>
+                    <label class="col-md-4 col-form-label text-md-right" for="transportation_section">通勤区間</label>
+                    <div>
+                        <input type="text" name="start_section" class="form-control mb-5" placeholder="出発駅" />
+                    </div>
+                    <input type="text" name="via_section[]" class="text form-control" placeholder="経由駅" />
+                    <div class="mb-5">
+                        <button type="button" id="btn-clone" class="mt-2 btn btn-primary btn-sm">追加</button>
+                        <button type="button" id="btn-remove" class="mt-2 btn btn-primary btn-sm">削除</button>
+                    </div>
+                    <input type="text" name="end_section" class="form-control " placeholder="目的地" />
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary mt-5">送信</button>
+                </div>
+            </form>
         </div>
-        <button type="submit" class="mt-5">送信</button>
-    </form>
+    </div>
 </body>
 
 </html>

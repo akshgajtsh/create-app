@@ -9,45 +9,48 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-light bg-light  mb-5">
-        <a class="navbar-brand" href="{{ route('home') }}">PORTAL SITE</a>
+    <nav class="navbar navbar-light bg-dark shadow-sm">
+        <a class="navbar-brand text-white" href="{{ route('home') }}">PORTAL SITE</a>
     </nav>
-    <h1>有休取消申請</h1>
-    @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
-    <form action="{{ route('submit.vacationcancel') }}" method="POST">
-        @csrf
-        <div>
-            <label>希望取消日</label>
-            <select name="vacation_id" class="form-control">
-                <option selected>選択してください</option>
-                @foreach($vacationcancel as $canceldays)
-                <option value="{{ $canceldays->id}}">
-                    取消開始日：{{$canceldays->vacation_start}} - 終了日：{{$canceldays->vacation_end}}
-                </option>
+    <h1 class="text-center mt-3">有休取消申請</h1>
+    <div class="container d-flex justify-content-center">
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
                 @endforeach
-            </select>
+            </ul>
         </div>
+        @endif
+        <form action="{{ route('submit.vacationcancel') }}" method="POST">
+            @csrf
+            <div>
+                <label class="mt-3">希望取消日</label>
+                <select name="vacation_id" class="form-control mt-2">
+                    <option selected>選択してください</option>
+                    @foreach($vacationcancel as $canceldays)
+                    <option value="{{ $canceldays->id}}">
+                        取消開始日：{{$canceldays->vacation_start}} - 終了日：{{$canceldays->vacation_end}}
+                    </option>
+                    @endforeach
+                </select>
+            </div>
 
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">取下げ理由</label>
-            <input class="form-control" type="text" name="cancel_reason">
-        </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label mt-3">取下げ理由</label>
+                <input class="form-control" type="text" name="cancel_reason">
+            </div>
 
-        <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">備考・詳細</label>
-            <textarea class="form-control" rows="3" name="comment"></textarea>
-        </div>
-        <button type="submit">送信</button>
-
-    </form>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">備考・詳細</label>
+                <textarea class="form-control" rows="3" name="comment"></textarea>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">送信</button>
+            </div>
+        </form>
+    </div>
 </body>
 
 </html>
