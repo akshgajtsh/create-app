@@ -15,14 +15,6 @@ class BotController extends Controller
     {
         return view('chatbots');
     }
-
-    //最初にアクセスした時、全メッセージを返す
-    public function allmessage()
-    {
-        $messages = Message::with('botResponse')->latest()->get();
-        return response()->json($messages);
-    }
-
     //新しいメッセージが来たとき
     public function newmessage(Request $request)
     {
@@ -45,14 +37,6 @@ class BotController extends Controller
             'link' => $botResponse->link,
         ]);
 
-        /*$message = new Message();
-        $message->message = $request->message;
-        $message->user_id = Auth::id();
-        $message->save();
-
-        //イベント発動
-        //新しいメッセージをpusherに
-        event(new MessageSent([$message, Auth::user()]));*/
         return response()->json(['status' => 'error', 'message' => '該当する応答は見つかりません。']);
     }
 }

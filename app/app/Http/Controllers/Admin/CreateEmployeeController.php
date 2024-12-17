@@ -30,6 +30,6 @@ class CreateEmployeeController extends Controller
             'base' => $request['base'],
             'join_date' => $request['join_date'],
         ]);
-        return redirect()->route('admin.admintop');
+        return redirect()->route('admin.admintop')->with('success', '従業員アカウントが作成できました。');
     }
 }

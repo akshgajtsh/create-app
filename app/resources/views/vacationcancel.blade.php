@@ -14,16 +14,21 @@
     </nav>
     <h1 class="text-center mt-3">有休取消申請</h1>
     <div class="container d-flex justify-content-center">
-        @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
         <form action="{{ route('submit.vacationcancel') }}" method="POST">
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+            @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+            @endif
             @csrf
             <div>
                 <label class="mt-3">希望取消日</label>

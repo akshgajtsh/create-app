@@ -43511,7 +43511,7 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-console.log('ok');
+/*console.log('ok');
 window.Echo.channel('chat-app').listen('MessageSent', function (data) {
   console.log('received a message');
   console.log(data);
@@ -43552,7 +43552,7 @@ submitbutton.addEventListener('click', function () {
   console.log(message.value);
   xhr.send("message=" + message.value);
   message.value = '';
-});
+});*/
 
 /***/ }),
 

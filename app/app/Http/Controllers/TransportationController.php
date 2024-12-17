@@ -32,6 +32,6 @@ class TransportationController extends Controller
         ]);
 
         Mail::to('xiaolinkeigi309@gmail.com')->send(new TransportationMail($transportation));
-        return redirect()->back()->with('success', '交通費申請が送信されました。');
+        return redirect()->route('transport.create')->with('success', '交通費申請が送信されました。');
     }
 }

@@ -59,7 +59,7 @@ return [
     'image' => 'The :attribute must be an image.',
     'in' => 'The selected :attribute is invalid.',
     'in_array' => 'The :attribute field does not exist in :other.',
-    'integer' => 'The :attribute must be an integer.',
+    'integer' => ':attribute 欄は必須項目です。',
     'ip' => 'The :attribute must be a valid IP address.',
     'ipv4' => 'The :attribute must be a valid IPv4 address.',
     'ipv6' => 'The :attribute must be a valid IPv6 address.',
@@ -147,6 +147,7 @@ return [
     */
 
     'attributes' => [
+        'name' => '名前',
         'email' => 'メールアドレス',
         'password' => 'パスワード',
         'work_days' => '出勤日数',

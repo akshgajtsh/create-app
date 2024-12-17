@@ -29,6 +29,6 @@ class AdminRegisterController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        return redirect()->route('admin.login')->with('success', '管理者アカウントが作成されました！');
+        return redirect()->route('admin.login')->with('success', '管理者アカウントが作成されました。');
     }
 }

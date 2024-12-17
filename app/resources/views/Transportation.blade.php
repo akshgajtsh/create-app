@@ -59,8 +59,12 @@
                     </ul>
                 </div>
                 @endif
+                @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+                @endif
                 @csrf
-
                 <div>
                     <label class="col-md-4 col-form-label text-md-right" for="transportation_month">交通費使用月</label>
                     <select name="transportation_month" class="form-control">

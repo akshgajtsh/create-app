@@ -12,17 +12,18 @@ document.querySelectorAll('.chat-button').forEach(button => {
       xhr.send("keyword=" + encodeURIComponent(keyword));
 
       xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-               const json = JSON.parse(xhr.responseText);
-               const messageArea = document.querySelector('#message_area');
-               let replyMessage = json.reply;
+         if (xhr.readyState === 4 && xhr.status === 200) {
+            const json = JSON.parse(xhr.responseText);
+            const messageArea = document.querySelector('#message_area');
+            messageArea.insertAdjacentHTML('beforeend', `<div class="user-bubble">${keyword}</div>`);
+            let replyMessage = json.reply;
 
-               if (json.link) {
-                  replyMessage += ` <a href="${json.link}" target="_blank">リンクはこちら</a>`;
-               }
-
-               messageArea.insertAdjacentHTML('beforeend', `<div>${replyMessage}</div>`);
+            if (json.link) {
+               replyMessage += ` <a href="${json.link}" target="_blank">リンクはこちら</a>`;
             }
+
+            messageArea.insertAdjacentHTML('beforeend', `<div class="bot-bubble">${replyMessage}</div>`);
+         }
       };
    });
 });

@@ -18,6 +18,11 @@
     </nav>
     <div class="jumbotron text-center">
         <h1 class="display-4 mt-5 mb-5">管理者トップページ</h1>
+        @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+        @endif
         <a href="{{route('admin.employeeregister')}}" class="btn btn-primary">従業員アカウント作成</a>
         <a href="{{ route('user.index')}}" class="btn btn-info">ユーザー確認画面</a>
     </div>

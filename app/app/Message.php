@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Message extends Model
 {
-    //use HasFactory;
-    protected $fillable = ['body', 'bot_response_id', 'created_at'];
+    protected $fillable = ['user_id', 'body', 'botresponse_id'];
 
     public function botResponse()
     {

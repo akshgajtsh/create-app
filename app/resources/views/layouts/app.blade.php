@@ -25,7 +25,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-dark shadow-sm">
             <div class="container">
-                <a class="navbar-brand  text-white">
+                <a class="navbar-brand  text-white" href="{{ route('home') }}">
                     <!--{{ config('app.name', 'Laravel') }}-->
                     PORTAL SITE
                 </a>
