@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Message;
 use App\Botresponse;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
+use Symfony\Component\ErrorHandler\Debug;
+
 
 class BotController extends Controller
 {
@@ -18,27 +21,25 @@ class BotController extends Controller
     //新しいメッセージが来たとき
     public function newmessage(Request $request)
     {
-        dd($request->all());
-        $keyword = $request->input('message');
-        //$keyword = $request->input('keyword');
-        $botResponse = Botresponse::where('keyword', $keyword)->first();
 
+        //$keyword = $request->input('message');
+        $keyword = $request->input('keyword');
+        $botResponse = Botresponse::where('keyword', $keyword)->first();
         if ($botResponse) {
             $message = Message::create([
+                'user_id' => Auth::id(),
                 'body' => $botResponse->reply,
                 'botresponse_id' => $botResponse->id,
                 'created_at' => now(),
             ]);
-        }
+        };
 
-        event(new MessageSent($message));
-        dd($message);
-        return response()->json([
-            'status' => 'success',
+        $bot =  [
             'reply' => $botResponse->reply,
+            'keyword' => $keyword,
             'link' => $botResponse->link,
-        ]);
+        ];
 
-        return response()->json(['status' => 'error', 'message' => '該当する応答は見つかりません。']);
+        event(new MessageSent($bot));
     }
 }

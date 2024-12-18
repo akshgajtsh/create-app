@@ -42,7 +42,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/chatbots', [BotController::class, 'index'])->name('chatbots');
     //ajax通信のルーティング
     Route::post('/newmessage', [BotController::class, 'newmessage']);
-    Route::post('/get-bot-reply', function (Request $request) {
+    /*Route::post('/get-bot-reply', function (Request $request) {
         $keyword = $request->input('keyword');
         // キーワードに対応するボット返信を取得
         $response = BotResponse::where('keyword', $keyword)->first();
@@ -50,7 +50,7 @@ Route::group(['middleware' => 'auth'], function () {
             'reply' => $response->reply ?? '申し訳ありませんが、対応する返信が見つかりません。',
             'link' => $response->link ?? ''
         ]);
-    });
+    });*/
     //交通費申請フォーム
     Route::get('/transport/create', [TransportationController::class, 'index'])->name('transport.create');
     Route::post('/transport/store', [TransportationController::class, 'transportationform'])->name('submit.transport');

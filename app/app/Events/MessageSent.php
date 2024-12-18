@@ -10,6 +10,8 @@ use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Log;
+use Symfony\Component\ErrorHandler\Debug;
 
 class MessageSent implements ShouldBroadcast
 {
@@ -21,8 +23,9 @@ class MessageSent implements ShouldBroadcast
      *
      * @return void
      */
-    public function __construct(Message $message)
+    public function __construct($message)
     {
+        Log::Debug(is_array($message));
         $this->message = $message;
     }
 
@@ -33,6 +36,7 @@ class MessageSent implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new Channel('chat-app');
+        Log::Debug($this->message);
+        return new Channel('chat-app', $this->message);
     }
 }

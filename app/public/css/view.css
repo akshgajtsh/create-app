@@ -10953,3 +10953,15 @@ a.text-dark:focus {
     max-width: 65%;
     padding: 10px 15px;
 }
+
+.user-message{
+  background-color: #6cb2eb;
+  height: 10%;
+  width: 100%;
+}
+
+#chat-buttons{
+  margin-top: 25px;
+}
+
+
