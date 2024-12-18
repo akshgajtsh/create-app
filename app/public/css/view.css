@@ -10935,7 +10935,7 @@ a.text-dark:focus {
 }
 
 #message_area{
-    width: 80%;
+    width: 65%;
 }
 
 .user-bubble{
@@ -10950,6 +10950,6 @@ a.text-dark:focus {
 .bot-bubble{
     background-color: #DCDCDC;
     border-radius: 10px;
-    max-width: 70%;
+    max-width: 65%;
     padding: 10px 15px;
 }

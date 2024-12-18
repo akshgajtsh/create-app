@@ -6,7 +6,7 @@ document.querySelectorAll('.chat-button').forEach(button => {
       const xhr = new XMLHttpRequest();
       let token = document.getElementsByName('csrf-token').item(0).content;
 
-      xhr.open('POST', '/get-bot-reply');
+      xhr.open('POST', '/newmessage');
       xhr.setRequestHeader('X-CSRF-Token', token);
       xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
       xhr.send("keyword=" + encodeURIComponent(keyword));

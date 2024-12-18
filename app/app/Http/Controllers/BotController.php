@@ -18,7 +18,9 @@ class BotController extends Controller
     //新しいメッセージが来たとき
     public function newmessage(Request $request)
     {
+        dd($request->all());
         $keyword = $request->input('message');
+        //$keyword = $request->input('keyword');
         $botResponse = Botresponse::where('keyword', $keyword)->first();
 
         if ($botResponse) {
@@ -30,7 +32,7 @@ class BotController extends Controller
         }
 
         event(new MessageSent($message));
-
+        dd($message);
         return response()->json([
             'status' => 'success',
             'reply' => $botResponse->reply,

@@ -13,6 +13,11 @@ return [
     |
     */
 
+    'reset' => 'パスワードがリセットされました。',
+    'sent' => 'パスワードリセットリンクをメールで送信しました。',
+    'throttled' => 'しばらく時間を置いてから再度お試しください。',
+    'token' => 'このパスワードリセットトークンは無効です。',
+    'user' => "そのメールアドレスに一致するユーザーが見つかりません。",
     'accepted' => 'The :attribute must be accepted.',
     'active_url' => 'The :attribute is not a valid URL.',
     'after' => 'The :attribute must be a date after :date.',
