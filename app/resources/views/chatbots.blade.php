@@ -12,7 +12,7 @@
 </div>
 
 </div>
-<footer class="user-message fixed-bottom mb-5">
+<footer class="user-message fixed-bottom">
     <div id="chat-buttons">
         <div class="d-flex justify-content-around">
             <div class="chat-button">

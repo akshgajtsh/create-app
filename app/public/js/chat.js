@@ -12,8 +12,10 @@ document.querySelectorAll('.chat-button').forEach(button => {
       xhr.setRequestHeader('X-CSRF-Token', token);
       xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
       xhr.send("keyword=" + encodeURIComponent(keyword));
+   });
+});
 
-      window.Echo.channel('chat-app')
+window.Echo.channel('chat-app')
       .listen('MessageSent', function (data) {
       console.log('received a message');
       const messageArea = document.querySelector('#message_area');
@@ -26,6 +28,4 @@ document.querySelectorAll('.chat-button').forEach(button => {
       messageArea.insertAdjacentHTML('beforeend', `<div class="user-bubble">${button}</div>`);
       messageArea.insertAdjacentHTML('beforeend', `<div class="bot-bubble">${newMessage}</div>`);
       });
-   });
-});
 
